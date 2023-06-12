@@ -18,7 +18,7 @@ public class GamePanel extends JPanel {
 	private int xDelta = 100, yDelta = 100;
 	private BufferedImage img;
 	private BufferedImage[][] Animations;
-	private int aniTick, aniIndex, aniSpeed = 12;
+	private int aniTick, aniIndex, aniSpeed = 15;
 	private int playerAction = IDLE;
 	private int playerDir = -1;
 	private boolean isMoving = false;
@@ -77,6 +77,13 @@ public class GamePanel extends JPanel {
 		this.isMoving = moving;
 	}
 	
+	private void setAnimation() {
+		if (isMoving) {
+			this.playerAction = RUNNING;
+		} else {
+			this.playerAction = IDLE;
+		}
+	}
 	private void updatePos() {
 		if (isMoving) {
 			switch (playerDir) {
@@ -96,20 +103,17 @@ public class GamePanel extends JPanel {
 		}
 
 	}
-
-	private void setAnimation() {
-		if (isMoving) {
-			this.playerAction = RUNNING;
-		} else {
-			this.playerAction = IDLE;
-		}
-	}
-
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+	public void updateGame() {
 		updateAnimationTick();
 		setAnimation();
 		updatePos();
+	}
+
+	
+
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
 		g.drawImage(Animations[playerAction][aniIndex], xDelta, yDelta, 128, 80, null);
 
 	}
