@@ -13,6 +13,8 @@ public class LoadSave {
 	public static final String PLAYER_SPRITE = "pngwing.com.png";
 	public static final String LEVEL_SPRITE = "outside_sprites.png";
 	public static final String LEVEL_ONE = "level_one_data.png";
+	
+	
 	public static BufferedImage getPlayerAtlas(String sprite) {
 		BufferedImage img = null;
 		InputStream is = LoadSave.class.getResourceAsStream("/" + sprite);
