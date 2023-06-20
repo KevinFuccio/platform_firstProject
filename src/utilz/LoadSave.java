@@ -13,9 +13,13 @@ public class LoadSave {
 	public static final String PLAYER_SPRITE = "pngwing.com.png";
 	public static final String LEVEL_SPRITE = "outside_sprites.png";
 	public static final String LEVEL_ONE = "level_one_data.png";
+	public static final String MENU_BUTTONS = "button_atlas.png";
+	public static final String MENU_BACKGROUND = "menu_background.png";
+	public static final String PAUSE_BACKGROUND = "pause_menu.png";
+	public static final String SOUND_BUTTONS = "sound_button.png";
 	
 	
-	public static BufferedImage getPlayerAtlas(String sprite) {
+	public static BufferedImage getSpriteAtlas(String sprite) {
 		BufferedImage img = null;
 		InputStream is = LoadSave.class.getResourceAsStream("/" + sprite);
 		try {
@@ -37,7 +41,7 @@ public class LoadSave {
 	}
 	public static int[][] getLevelData(){
 		int[][] lvlData = new int[Game.TILES_IN_HEIGH][Game.TILES_IN_WIDTH];
-		BufferedImage img = getPlayerAtlas(LEVEL_ONE);
+		BufferedImage img = getSpriteAtlas(LEVEL_ONE);
 		for(int j = 0; j<img.getHeight(); j++) {
 			for(int i = 0; i<img.getWidth(); i++) {
 				Color color = new Color(img.getRGB(i, j));

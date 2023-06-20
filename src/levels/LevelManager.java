@@ -2,6 +2,8 @@ package levels;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
+
 import static main.Game.TILES_SIZE;
 import main.Game;
 import utilz.LoadSave;
@@ -16,10 +18,11 @@ public class LevelManager {
 		// levelSprite = LoadSave.getPlayerAtlas(LoadSave.LEVEL_SPRITE);
 		importOutsideSprites();
 		levelOne = new Level(LoadSave.getLevelData());
+		System.out.println(Arrays.deepToString(LoadSave.getLevelData()));
 	}
 
 	private void importOutsideSprites() {
-		BufferedImage img = LoadSave.getPlayerAtlas(LoadSave.LEVEL_SPRITE);
+		BufferedImage img = LoadSave.getSpriteAtlas(LoadSave.LEVEL_SPRITE);
 		levelSprite = new BufferedImage[48];
 		for (int j = 0; j < 4; j++) {
 			for (int i = 0; i < 12; i++) {
